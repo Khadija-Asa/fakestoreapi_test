@@ -1,0 +1,45 @@
+/* fonts */
+@font-face {
+  font-family: 'Roboto';
+  src: url(./../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+/* colors */
+:root {
+  --color-white: #FBFBFB;
+  --color-blue: #564AFF;
+  --color-gray: #0000001A;
+  --color-dark-gray: #707070;
+  --category-clothes: #FFA846;
+  --category-jewelry: #32B436;
+}
+
+/* global settings */
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
