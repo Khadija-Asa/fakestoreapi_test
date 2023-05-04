@@ -4,6 +4,7 @@ import './../styles/main.css';
 import './../styles/header.css';
 import logo from './../shared/logo.svg';
 
+
 const Header = () => {
 
   const [showLinks, setShowLinks] = useState(false);
@@ -18,33 +19,33 @@ const Header = () => {
           <span className='burger_bar'></span>
         </button>
 
-        <NavLink to="/">
-          <img className='navbar_logo' src={logo} alt="Logo Circle Products" />
-        </NavLink>
-
         <ul className='navbar_links'>
           <li className='navbar_item'>
+            <NavLink to="/">
+            <img className='navbar_logo' src={logo} alt="Logo Circle Products" />
+            </NavLink>
+          </li>
+          <li className='navbar_item'>
             <NavLink className='navbar_link' to="/">
-            dashboard
+            Dashboard
             </NavLink>
           </li>
           <li className='navbar_item'>
             <NavLink className='navbar_link' to="/productsmanagement">
-            products management
+            Products management
             </NavLink>
           </li>
           <li className='navbar_item'>
             <NavLink className='navbar_link' to="/employeesmanagement">
-            employees management
+            Employees management
             </NavLink>
           </li>
           <li className='navbar_item'>
             <NavLink className='navbar_link' to="/loginlogout">
-            logout
+            Logout
             </NavLink>
           </li>
         </ul>
-
       </nav>
   );
 };

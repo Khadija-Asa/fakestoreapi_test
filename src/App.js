@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/main.css';
+import './styles/productsmanagement.css';
+
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import ProductsManagement from './components/ProductsManagement';
