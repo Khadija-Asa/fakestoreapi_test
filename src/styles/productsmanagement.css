@@ -82,10 +82,11 @@
   }
 }
 
-.category:nth-child(2) {
-  background-color: red;
+.cat {
+  background-color: var(--color-clothes);
+  border-radius: 50px;
+  padding: .2rem;
 }
-
 
 .cell {
   padding: 6px 12px;
@@ -100,9 +101,9 @@
 
 /* tablet */
 @media screen and (min-width: 768px) {
-  .products {
+  .products,
+  .product_card {
     padding-left: clamp(9.375rem, 6.8109rem + 12.8205vw, 21.875rem);
-
   }
   table {
   }

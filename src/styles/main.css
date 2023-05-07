@@ -10,8 +10,8 @@
   --color-blue: #564AFF;
   --color-gray: #0000001A;
   --color-dark-gray: #707070;
-  --category-clothes: #FFA846;
-  --category-jewelry: #32B436;
+  --color-clothes: #FFA846;
+  --color-jewelry: #32B436;
 }
 
 /* global settings */
@@ -41,4 +41,5 @@ img {
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-white);
 }

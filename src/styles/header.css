@@ -74,7 +74,6 @@ canvas {
     background-color: var(--color-white);
     transition: all .5s ease-in-out;
     z-index: 2;
-
   }
   .burger_bar::before,
   .burger_bar::after {
