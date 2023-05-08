@@ -18,7 +18,7 @@ const Product = () => {
   }, [id]);
 
   const [currentPrice, setCurrentPrice] = useState(product.price);
-  const [newPrice, setNewPrice] = useState(product.price);
+  const [newPrice, setNewPrice] = useState([]);
   const [isPriceChanged, setIsPriceChanged] = useState(false);
 
   const handlePriceChange = (event) => {
@@ -29,7 +29,7 @@ const Product = () => {
   const handleUpdateProduct = () => {
     if (isPriceChanged) {
       axios.put(`https://fakestoreapi.com/products/${product.id}`, {
-        price: newPrice,
+        price: product.price,
       })
         .then((response) => {
           setCurrentPrice(newPrice);
@@ -41,13 +41,14 @@ const Product = () => {
     }
   }
 
-  const [vta, setVta] = useState(product.price);
+  const [vta, setVta] = useState([]);
 
   function handleVtaChange(e) {
     setVta(e.target.value);
   }
 
-  const vtaAvecRemise = (newPrice * 0.2);
+  const taux = 0.2;
+  const vtaAvecRemise = (newPrice * taux);
 
   return (
     // card
@@ -81,7 +82,7 @@ const Product = () => {
             <h3>price</h3>
 
             {/* input field */}
-            <input placeholder={product.price} id="newPrice" type="number" value={newPrice} onChange={handlePriceChange} />
+            <input id="newPrice" type="number" value={newPrice} onChange={handlePriceChange} />
 
             {/* update btn */}
             <button onClick={handleUpdateProduct} disabled={!isPriceChanged}>
@@ -90,8 +91,8 @@ const Product = () => {
 
             {/* vta */}
             <div className="price_vta">
-              <p>
-                Price(including VTA): {vtaAvecRemise + newPrice} €
+              <p onChange={handleVtaChange}>
+                Price(including VTA): {vtaAvecRemise} €
               </p>
             </div>
           </div>
