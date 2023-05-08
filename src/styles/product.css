@@ -30,7 +30,7 @@
 
 .card_img img {
   /* width: clamp(9.375rem, 7.3878rem + 9.9359vw, 19.0625rem); */
-  width: 1px;
+  width: 100px;
 }
 
 /* tablet */

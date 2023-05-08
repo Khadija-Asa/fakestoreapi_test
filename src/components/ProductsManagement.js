@@ -77,7 +77,7 @@ return (
               {product.price}
             </div>
             <div className="cell" data-title='Price (including VAT)'>
-              {product.vat}
+              {product.price.toFixed(1) * 0.2 + product.price}
             </div>
           </div>
         ))}

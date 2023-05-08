@@ -1,61 +1,44 @@
 import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
 import { useParams } from 'react-router-dom';
 import './../styles/product.css';
 import arrow from './../shared/back_button.svg';
 import axios from 'axios';
 
 const Product = () => {
+
+  // call api
   const {id} = useParams();
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
     const getProduct = async () => {
-    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-    setProduct(await response.json());
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+    setProduct(await res.json());
     }
-    getProduct();
-  }, [id]);
+    getProduct([id]);
+  }, );
 
-  const [currentPrice, setCurrentPrice] = useState(product.price);
-  const [newPrice, setNewPrice] = useState([]);
-  const [isPriceChanged, setIsPriceChanged] = useState(false);
+  const [prixHT, setPrixHT] = useState([]);
+  const [montantTTC, setMontantTTC] = useState([]);
 
-  const handlePriceChange = (event) => {
-    setNewPrice(event.target.value);
-    setIsPriceChanged(true);
-  };
-
-  const handleUpdateProduct = () => {
-    if (isPriceChanged) {
-      axios.put(`https://fakestoreapi.com/products/${product.id}`, {
-        price: product.price,
-      })
-        .then((response) => {
-          setCurrentPrice(newPrice);
-          setIsPriceChanged(false);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
+  const handleChange = (e) => {
+    setPrixHT(e.target.value);
   }
 
-  const [vta, setVta] = useState([]);
-
-  function handleVtaChange(e) {
-    setVta(e.target.value);
+  const handleClick = () => {
+    const ratio = 1.20;
+    setMontantTTC(prixHT * ratio);
   }
-
-  const taux = 0.2;
-  const vtaAvecRemise = (newPrice * taux);
 
   return (
     // card
     <div className='product_card'>
       {/* back to management */}
       <NavLink to={`/productsmanagement`} className="back_arrow">
-        <img src={arrow} alt="" />
+        <img src={arrow} alt="Go back arrow" />
       </NavLink>
 
       {/* title */}
@@ -82,22 +65,24 @@ const Product = () => {
             <h3>price</h3>
 
             {/* input field */}
-            <input id="newPrice" type="number" value={newPrice} onChange={handlePriceChange} />
+            <input id="newPrice" placeholder={product.price} type="number" onChange={handleChange} />
+
+            <button onClick={handleClick}>
+              update
+            </button>
 
             {/* update btn */}
-            <button onClick={handleUpdateProduct} disabled={!isPriceChanged}>
-              update product
-            </button>
+            
 
             {/* vta */}
             <div className="price_vta">
-              <p onChange={handleVtaChange}>
-                Price(including VTA): {vtaAvecRemise} €
-              </p>
+
+            <p>Le montant TTC est: {montantTTC} €</p>
+
             </div>
           </div>
-        
         </div>
+
       </div>
     </div>
   )
