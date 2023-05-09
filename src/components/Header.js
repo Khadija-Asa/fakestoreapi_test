@@ -8,6 +8,7 @@ import logo from './../shared/logo.svg';
 const Header = () => {
 
   const [showLinks, setShowLinks] = useState(false);
+
   const handleShowLinks = () => {
     setShowLinks(!showLinks)
   }
@@ -20,27 +21,28 @@ const Header = () => {
         </button>
 
         <ul className='navbar_links'>
-          <li className='navbar_item'>
+          <li onClick={handleShowLinks}>
             <NavLink to="/">
             <img className='navbar_logo' src={logo} alt="Logo Circle Products" />
             </NavLink>
           </li>
-          <li className='navbar_item'>
+          <li onClick={handleShowLinks}>
             <NavLink className='navbar_link' to="/">
             Dashboard
             </NavLink>
           </li>
-          <li className='navbar_item'>
+          <li onClick={handleShowLinks}>
             <NavLink className='navbar_link' to="/productsmanagement">
             Products management
             </NavLink>
           </li>
-          <li className='navbar_item'>
+          <li onClick={handleShowLinks}>
             <NavLink className='navbar_link' to="/employeesmanagement">
             Employees management
             </NavLink>
           </li>
-          <li className='navbar_item'>
+          <hr />
+          <li onClick={handleShowLinks}>
             <NavLink className='navbar_link' to="/loginlogout">
             Logout
             </NavLink>

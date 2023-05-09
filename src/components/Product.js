@@ -36,54 +36,63 @@ const Product = () => {
   return (
     // card
     <div className='product_card'>
-      {/* back to management */}
-      <NavLink to={`/productsmanagement`} className="back_arrow">
-        <img src={arrow} alt="Go back arrow" />
-      </NavLink>
+      <section className="card_title">
+        {/* back to management */}
+        <NavLink to={`/productsmanagement`} className="back_arrow">
+          <img src={arrow} alt="Go back arrow" />
+        </NavLink>
 
-      {/* title */}
-      <h2>{product.title}</h2>
-      <br />
+        {/* title */}
+        <h2>{product.title}</h2>
+      </section>
 
-      <div className="card">
+      <section className="card">
         {/* img */}
         <div className="card_img">
-          <img src={product.image} alt={product.title} />
+            <img src={product.image} alt={product.title} />
         </div>
 
-        {/* description */}
-        <div className="card_description">
-          <h3>description</h3>
-            <p>{product.description}</p>
-          <h3>category</h3>
-            <p>{product.category}</p>
-        </div>
+        <section className="card_text">   
+          {/* description */}
+          <section className="card_description">
+            <div className="description_text">
+              <h3>description</h3> <br />
+              <p>{product.description}</p>
+            </div>
+            <div className="description_cat">
+              <h3>category</h3> <br />
+              <p>{product.category}</p>
+            </div>
+          </section>
+        
+          {/* price */}
+          <section className="card_price">
+            <div className="price_tag">
+              <h3>price</h3>
 
-        {/* price */}
-        <div className="card_price">
-          <div className="price_tag">
-            <h3>price</h3>
 
-            {/* input field */}
-            <input id="newPrice" placeholder={product.price} type="number" onChange={handleChange} />
+              <div className="price_vta">
+                <div className="vta">
+                  {/* input field */}
+                  <input id="newPrice" placeholder={product.price} type="number" onChange={handleChange} />
 
-            <button onClick={handleClick}>
-              update
-            </button>
+                  {/* update btn */}
+                  <button onClick={handleClick}>
+                    Update product
+                  </button>
+                </div>
 
-            {/* update btn */}
-            
-
-            {/* vta */}
-            <div className="price_vta">
-
-            <p>Le montant TTC est: {montantTTC} €</p>
+                {/* vta */}
+                <br />
+                <p>
+                  <span>Price</span>(including VAT): {montantTTC}€
+                </p>
+              </div>
 
             </div>
-          </div>
-        </div>
-
-      </div>
+          </section>
+        </section>
+      </section>
     </div>
   )
 }

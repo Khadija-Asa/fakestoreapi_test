@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function EmployeesManagement() {
+function EmployeesManagement() {
   return (
-    <div>EmployeesManagement</div>
+    <div>Employees Management page !</div>
   )
 }
+
+export default EmployeesManagement

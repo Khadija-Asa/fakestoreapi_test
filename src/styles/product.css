@@ -3,12 +3,25 @@
   padding: 1rem;
 }
 
+.card_title {
+  display: flex;
+  flex-direction: column;
+}
+
+.back_arrow img {
+  margin-bottom: 2rem;
+  width: clamp(1.25rem, 1.0577rem + 0.9615vw, 2.1875rem);
+}
+
 /* titles */
-.product_card h2 {
+.card_title h2 {
   color: var(--color-blue);
+  display: flex;
   font-size: clamp(1rem, 0.7436rem + 1.2821vw, 2.25rem);
   font-weight: bold;
+  justify-content: center;
   text-align: center;
+  margin-bottom: clamp(1.875rem, 1.3365rem + 2.6923vw, 4.5rem);
 }
 
 .product_card h3 {
@@ -21,27 +34,102 @@
 
 /* img */
 .card_img {
-  display: flex;
-  justify-content: center;
   box-shadow: 0px 2px 5px #0000001A;
   border-radius: 3px;
-  padding: 2rem;
+  max-width: 500px;
 }
 
 .card_img img {
-  /* width: clamp(9.375rem, 7.3878rem + 9.9359vw, 19.0625rem); */
-  width: 100px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 5px var(--color-gray);
+  border-radius: 3px;
+  padding: 5rem;
+}
+
+.card_description {
+  max-width: 450px;
+}
+
+/* price */
+.vta {
+  display: flex;
+  gap: 40px;
+}
+
+.vta input {
+  border: 1px solid #564AFF;
+  border-radius: 3px;
+  height: 40px;
+  max-width: 144px;
+}
+
+.vta input:placeholder-shown {
+  padding-left: .5rem;
+}
+
+.vta button {
+  background: #564AFF 0% 0% no-repeat padding-box;
+  border: 1px solid #564AFF;
+  border-radius: 3px;
+  opacity: 1;
+  color: #FFF;
+  text-align: left;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  max-width: 137px;
+  text-align: center;
+  font-size: clamp(0.875rem, 0.8494rem + 0.1282vw, 1rem);
+}
+
+.price_vta p {
+  color: var(--color-dark-gray);
+  font-size: clamp(0.875rem, 0.8494rem + 0.1282vw, 1rem);
+  padding-bottom: 5rem;
+}
+
+.price_vta span {
+  font-weight: bold;
 }
 
 /* tablet */
 @media screen and (min-width: 768px) {
-  .products,
+  .card_title {
+    display: flex;
+    flex-direction: row;
+  }
+  .back_arrow img {
+    margin-bottom: 0;
+  }
   .product_card {
     padding-left: clamp(9.375rem, 6.8109rem + 12.8205vw, 21.875rem);
   }
-  table {
+  /* img */
+  .card_img {
+    width: auto;
   }
-
+  .card_img img {
+  }
+  .card {
+    display: flex;
+    gap: 3rem;
+  }
+  .card_description {
+    color: var(--color-dark-gray);
+    display: flex;
+    font-size: clamp(0.875rem, 0.8494rem + 0.1282vw, 1rem);
+  }
+  .card_price {
+    align-items: center;
+    display: flex;
+    gap: 3rem;
+  }
+  .price_vta {
+    display: flex;
+    gap: 5rem;
+  }
+  .vta {
+    flex-direction: column;
+  }
 }
 
 /* desktop */
