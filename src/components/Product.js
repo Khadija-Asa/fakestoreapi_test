@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink} from 'react-router-dom';
-import { useHistory } from "react-router-dom";
-
 import { useParams } from 'react-router-dom';
 import './../styles/product.css';
 import arrow from './../shared/back_button.svg';
-import axios from 'axios';
 
 const Product = () => {
 
@@ -13,6 +10,7 @@ const Product = () => {
   const {id} = useParams();
   const [product, setProduct] = useState([]);
 
+  // get api
   useEffect(() => {
     const getProduct = async () => {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -28,6 +26,7 @@ const Product = () => {
     setPrixHT(e.target.value);
   }
 
+  // vta
   const handleClick = () => {
     const ratio = 1.20;
     setMontantTTC(prixHT * ratio);
@@ -49,7 +48,7 @@ const Product = () => {
       <section className="card">
         {/* img */}
         <div className="card_img">
-            <img src={product.image} alt={product.title} />
+          <img src={product.image} alt={product.title} />
         </div>
 
         <section className="card_text">   
@@ -61,15 +60,14 @@ const Product = () => {
             </div>
             <div className="description_cat">
               <h3>category</h3> <br />
-              <p>{product.category}</p>
+              <p className='cat'><span>{product.category}</span></p>
             </div>
           </section>
         
           {/* price */}
           <section className="card_price">
             <div className="price_tag">
-              <h3>price</h3>
-
+              <h3>price</h3> <br />
 
               <div className="price_vta">
                 <div className="vta">

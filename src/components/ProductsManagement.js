@@ -3,8 +3,10 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 const ProductsManagement = () => {
-  const [data, setData] = useState([]);
 
+const [data, setData] = useState([]);
+
+// get data api
 useEffect(() => {
   axios({
     method: 'GET',
@@ -17,47 +19,49 @@ useEffect(() => {
 }, []);
 
 return (
-    <div className="products">
+    <section className="products">
   
       <wrapper className="table">
         <h1>Products management</h1>
 
-        <div className="row header">
-          <div className="cell">
+        {/* header */}
+        <ul className="row header">
+          <li className="cell">
             Product name
-          </div>
-          <div className="cell">
+          </li>
+          <li className="cell">
             Category <span className="arrow_down"></span>
-          </div>
-          <div className="cell">
+          </li>
+          <li className="cell">
             Price
-          </div>
-          <div className="cell">
+          </li>
+          <li className="cell">
             Price <span>(including VAT)</span>
-          </div>
-        </div>
+          </li>
+        </ul>
         
+        {/* map product */}
         {data.map((product) => (
-          <div className="row body">
-            <div className="cell" data-title='Product name'>
+          <ul className="row body">
+            <li className="cell" data-title='Product name'>
               <NavLink className='row_title' to={`/productsmanagement/${product.id}`} >
                 {product.title}
               </NavLink>
-            </div>
-            <div className="cell" data-title='Category'>
-              {product.category}
-            </div>
-            <div className="cell" data-title='Price'>
+            </li>
+            <li className="cell cat" data-title='Category'>
+              <span>{product.category}</span>
+            </li>
+            <li className="cell" data-title='Price'>
               {product.price}
-            </div>
-            <div className="cell" data-title='Price (including VAT)'>
+            </li>
+            <li className="cell" data-title='Price (including VAT)'>
               {product.price.toFixed(1) * 0.2 + product.price}
-            </div>
-          </div>
+            </li>
+          </ul>
         ))}
 
       </wrapper>
-    </div> 
+    </section> 
   )
 };
 

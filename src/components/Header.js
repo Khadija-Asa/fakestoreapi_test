@@ -7,6 +7,7 @@ import logo from './../shared/logo.svg';
 
 const Header = () => {
 
+  // burger show/hide
   const [showLinks, setShowLinks] = useState(false);
 
   const handleShowLinks = () => {
@@ -16,14 +17,16 @@ const Header = () => {
   return (
       <nav className={`navbar ${showLinks ? "show_nav" : "hide_nav"} `}>
 
+        {/* burger */}
         <button className='navbar_burger' onClick={handleShowLinks}>
           <span className='burger_bar'></span>
         </button>
 
+        {/* menu */}
         <ul className='navbar_links'>
-          <li onClick={handleShowLinks}>
+          <li className='navbar_logo' onClick={handleShowLinks}>
             <NavLink to="/">
-            <img className='navbar_logo' src={logo} alt="Logo Circle Products" />
+            <img src={logo} alt="Logo Circle Products" />
             </NavLink>
           </li>
           <li onClick={handleShowLinks}>

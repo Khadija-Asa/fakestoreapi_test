@@ -7,12 +7,6 @@
   padding: 1rem;
 }
 
-.products_table {
-  border-collapse: collapse;
-  gap: 2rem;
-  width: 100%;
-}
-
 .wrapper {
   margin: 0 auto;
   padding: 40px;
@@ -20,9 +14,9 @@
 
 .cell {
   color: var(--color-dark-gray);
+  display: table-cell;
   font-size: clamp(0.875rem, 0.8494rem + 0.1282vw, 1rem);
   padding: 6px 12px;
-  display: table-cell;
 }
 
 .row {
@@ -41,13 +35,14 @@
   font-weight: bold;
 }
 
-.cat {
+.cat span {
   background-color: var(--color-clothes);
   border-radius: 50px;
-  padding: .2rem;
+  color: #FFF;
+  padding: .3rem .7rem;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 767px) {
   .table {
     display: block;
   }
@@ -84,39 +79,60 @@
   }
   .products,
   .product_card {
-    padding-left: clamp(9.375rem, 6.8109rem + 12.8205vw, 21.875rem);
-    margin: 0 50px;
+    padding-left: clamp(6.25rem, 2.7244rem + 17.6282vw, 23.4375rem);
+    margin: 0 1%;
   }
   .table {
     display: table;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     width: 100%;
   }
-  .row {
-    display: table-row;
-    box-shadow: 0px 2px 5px #0000001A;
-    border-radius: 3px;
-    margin-bottom: 5rem;
+  .row.header  {
+    background-color: var(--color-blue);
+    border-radius: 30%;
   }
   .row.header .cell {
-    background: var(--color-blue);
     color: #FFF;
     padding: 21px 20px;
+    vertical-align: middle;
   }
-  .row.body .cell {
-    margin-bottom: 40px;
-    padding: 21px 20px;
+  .row.body li {
+    padding: 25px 20px;
+    vertical-align: middle;
   }
   .row .cell span {
     font-weight: 100;
   }
+  .cell:nth-last-child(1) {
+    text-align: end;
+  }
   .arrow_down {
-    display : inline-block;
     border-top : 7px solid #FFF;
     border-right : 4px solid transparent;
     border-left : 4px solid transparent;
+    display : inline-block;
     margin-left: 5px;
+  }
+  .cat span {
+    padding: .5rem .7rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1251px) {
+  .cat span {
+    margin: -36px;
   }
 }
 
 /* desktop */
+@media screen and (min-width: 1440px) {
+  .products h1 {
+    align-items: center;
+    display: table-caption;
+    padding: 68px 0;
+  }
+  .products,
+  .product_card {
+    padding-left: clamp(6.25rem, 2.7244rem + 17.6282vw, 23.4375rem);
+    margin: 0 2.5%;
+  }
+}

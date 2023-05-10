@@ -2,6 +2,7 @@ canvas {
   display: none;
 }
 
+/* nav */
 .navbar {
   background-color: var(--color-blue);
   display: flex;
@@ -12,16 +13,21 @@ canvas {
   width: 100vw;
 }
 
-.navbar_logo {
+/* logo */
+.navbar_logo img {
+  margin: 0 auto;
+  margin: 58px 0 116px 0;
   width: clamp(6.25rem, 5.3013rem + 4.7436vw, 10.875rem);;
 }
 
+/* menu */
 .navbar_link {
   align-items: center;
-  color: var(--color-white);
+  color: #FFF;
   display: flex;
   font-size: 16px;
   font-weight: bold;
+  line-height: 21px;
   text-decoration: none;
   transition: transform 1s;
 }
@@ -42,7 +48,8 @@ canvas {
 }
 
 .navbar_links hr {
-  max-width: 200px;
+  opacity: .3;
+  width: clamp(9.375rem, 7.8365rem + 7.6923vw, 16.875rem);
 }
 
 @media screen and (max-width: 767px) {
@@ -73,19 +80,19 @@ canvas {
   .navbar_burger {
     background: transparent;
     border: none;
+    cursor: pointer;
     height: 40px;
     width: 40px;
-    cursor: pointer;
   }
   .burger_bar,
   .burger_bar::before,
   .burger_bar::after {
+    background-color: var(--color-white);
     display: block;
     height: 2px;
-    width: 24px;
     position: relative;
-    background-color: var(--color-white);
     transition: all .5s ease-in-out;
+    width: 24px;
     z-index: 2;
   }
   .burger_bar::before,
@@ -115,36 +122,35 @@ canvas {
 
 /* Tablet */
 @media screen and (min-width: 768px) {
-  .navbar_logo {
-    padding-bottom: 2rem;
-  }
-  /* Menu burger (mobile) */
-  .navbar_links {
-    gap: 32px;
+  .navbar {
+    display: flex;
     height: 100vh;
-    padding: 10rem 3rem;
-    position: fixed;
+    justify-content: center;
+    padding: 0;
+    position: absolute;
+    width: clamp(6.25rem, 2.7244rem + 17.6282vw, 23.4375rem);
+  }
+  .navbar_logo {
+    padding-bottom: rem;
+    margin: 0 auto;
+  }
+  .navbar_logo img {
+    width: clamp(8.125rem, 7.5609rem + 2.8205vw, 10.875rem);
+  }
+  .navbar_links {
     display: flex;
     flex-direction: column;
+    gap: 32px;
+    padding-left: ;
+    position: fixed;
     z-index: 1;
-  }
-  .navbar_logo {
-    background-color: transparent;
   }
   .navbar_burger {
     display: none;
   }
-  .navbar {
-    height: 100vh;
-    position: absolute;
-    width: clamp(9.375rem, 6.8109rem + 12.8205vw, 21.875rem);
-  }
   .navbar_link {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    height: 17px;
+    font-size: clamp(0.8125rem, 0.774rem + 0.1923vw, 1rem);
+    font-weight: bold;
+    padding-left: 5%;
   }
 }
-
-/* Desktop */
