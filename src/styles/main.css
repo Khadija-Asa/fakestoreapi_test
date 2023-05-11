@@ -14,6 +14,10 @@
   --color-jewelry: #32B436;
 }
 
+[data-theme="dark"] {
+  --color-blue: #000000;
+}
+
 /* global settings */
 * {
   box-sizing: border-box;

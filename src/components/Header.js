@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import './../styles/main.css';
 import './../styles/header.css';
 import logo from './../shared/logo.svg';
+import DarkMode from './DarkMode';
 
 
 const Header = () => {
@@ -24,6 +25,9 @@ const Header = () => {
 
         {/* menu */}
         <ul className='navbar_links'>
+        <DarkMode />
+
+
           <li className='navbar_logo' onClick={handleShowLinks}>
             <NavLink to="/">
             <img src={logo} alt="Logo Circle Products" />
@@ -51,6 +55,7 @@ const Header = () => {
             </NavLink>
           </li>
         </ul>
+
       </nav>
   );
 };

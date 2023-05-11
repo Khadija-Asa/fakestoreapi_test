@@ -4,7 +4,7 @@
   font-size: clamp(1rem, 0.7436rem + 1.2821vw, 2.25rem);
   font-weight: bold;
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .wrapper {
@@ -104,6 +104,9 @@
   }
   .cell:nth-last-child(1) {
     text-align: end;
+  }
+  .cell:nth-child(3) {
+    text-align: right;
   }
   .arrow_down {
     border-top : 7px solid #FFF;

@@ -19,7 +19,7 @@ useEffect(() => {
 }, []);
 
 return (
-    <section className="products">
+    <main className="products">
   
       <wrapper className="table">
         <h1>Products management</h1>
@@ -52,16 +52,16 @@ return (
               <span>{product.category}</span>
             </li>
             <li className="cell" data-title='Price'>
-              {product.price}
+              {product.price}€
             </li>
             <li className="cell" data-title='Price (including VAT)'>
-              {product.price.toFixed(1) * 0.2 + product.price}
+              {product.price.toFixed(1) * 0.2 + product.price}€
             </li>
           </ul>
         ))}
 
       </wrapper>
-    </section> 
+    </main> 
   )
 };
 

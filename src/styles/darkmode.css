@@ -1,0 +1,71 @@
+.dark_mode_label {
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+      inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  position: relative;
+  transition: 0.3s;
+  width: 65px;
+}
+
+.dark_mode_label:after {
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  content: "";
+  height: 25px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  transition: 0.3s;
+  width: 25px;
+}
+
+.dark_mode_input {
+  height: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+.dark_mode_input:checked + .dark_mode_label {
+  background: var(--color-white);
+}
+
+.dark_mode_input:checked + .dark_mode_label:after {
+  left: 62px;
+  transform: translateX(-100%);
+}
+
+.dark_mode_label:active:after {
+  width: 30px;
+}
+
+.dark_mode_label svg {
+  position: absolute;
+  top: 5px;
+  width: 20px;
+  z-index: 100;
+}
+
+.dark_mode_label svg.sun {
+  fill: var(--color-white);
+  left: 5px;
+  transition: 0.3s;
+}
+
+.dark_mode_label svg.moon {
+  left: 40px;
+  fill: var(--color-dark-gray);
+  transition: 0.3s;
+}
+
+.dark_mode_input:checked + .dark_mode_label svg.sun {
+  fill: var(--color-dark-gray);
+}
+
+.dark_mode_input:checked + .dark_mode_label svg.moon {
+  fill: var(--color-white);
+}

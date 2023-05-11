@@ -34,22 +34,25 @@ const Product = () => {
 
   return (
     // card
-    <div className='product_card'>
-      <section className="card_title">
+    <main className='product_card'>
+      <header className="card_title">
         {/* back to management */}
-        <NavLink to={`/productsmanagement`} className="back_arrow">
-          <img src={arrow} alt="Go back arrow" />
-        </NavLink>
+          <NavLink to={`/productsmanagement`} className="back_arrow">
+            <img src={arrow} alt="Go back arrow" />
+          </NavLink>
 
         {/* title */}
-        <h2>{product.title}</h2>
-      </section>
+          <h2>{product.title}</h2>
+      </header>
+
+      <br />
 
       <section className="card">
         {/* img */}
         <div className="card_img">
           <img src={product.image} alt={product.title} />
         </div>
+        <br />
 
         <section className="card_text">   
           {/* description */}
@@ -58,12 +61,14 @@ const Product = () => {
               <h3>description</h3> <br />
               <p>{product.description}</p>
             </div>
+            <br />
             <div className="description_cat">
               <h3>category</h3> <br />
-              <p className='cat'><span>{product.category}</span></p>
+              <p className='cat2'><span>{product.category}</span></p>
             </div>
           </section>
-        
+          <br />
+
           {/* price */}
           <section className="card_price">
             <div className="price_tag">
@@ -75,7 +80,7 @@ const Product = () => {
                   <input id="newPrice" placeholder={product.price} type="number" onChange={handleChange} />
 
                   {/* update btn */}
-                  <button onClick={handleClick}>
+                  <button type='submit' onClick={handleClick}>
                     Update product
                   </button>
                 </div>
@@ -91,7 +96,8 @@ const Product = () => {
           </section>
         </section>
       </section>
-    </div>
+
+    </main>
   )
 }
 
